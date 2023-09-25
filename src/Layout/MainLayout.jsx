@@ -3,9 +3,11 @@ import Navbar from "../Components/Header/Navbar/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className=" max-w-6xl mx-auto">
       <Navbar></Navbar>
-      <Outlet></Outlet>
+      <div className="py-6">
+        <Outlet></Outlet>
+      </div>
     </div>
   );
 };

@@ -1,12 +1,24 @@
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
+import CardData from "../../Components/Header/AllCards/CardData";
 
 const DetailsCard = () => {
-  const params = useParams();
-  console.log(params);
+  const [details, setDetails] = useState([]);
+  const { id } = useParams();
+
+  const detailsCards = useLoaderData();
+
+  useEffect(() => {
+    const findDetails = detailsCards?.find((card) => card.id == id);
+
+    setDetails(findDetails);
+  }, [id, detailsCards]);
+
+  console.log(details);
 
   return (
     <div>
-      <h1>show details</h1>
+      <CardData details={details}></CardData>
     </div>
   );
 };

@@ -27,6 +27,7 @@ const myCreateRoute = createBrowserRouter([
       {
         path: "/allCards/:id",
         element: <DetailsCard></DetailsCard>,
+        loader: () => fetch("/data.json"),
       },
     ],
   },
