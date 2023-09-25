@@ -2,11 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Donation from "../Pages/Donation/Donation";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import DetailsCard from "../Pages/DetailsCard/DetailsCard";
 
 const myCreateRoute = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -20,6 +23,10 @@ const myCreateRoute = createBrowserRouter([
       {
         path: "/statistics",
         element: <Donation></Donation>,
+      },
+      {
+        path: "/allCards/:id",
+        element: <DetailsCard></DetailsCard>,
       },
     ],
   },
