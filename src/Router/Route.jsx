@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Donation from "../Pages/Donation/Donation";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import DetailsCard from "../Pages/DetailsCard/DetailsCard";
+import Statistics from "../Pages/Statistics/Statistics";
 
 const myCreateRoute = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const myCreateRoute = createBrowserRouter([
       },
       {
         path: "/statistics",
-        element: <Donation></Donation>,
+        element: <Statistics></Statistics>,
       },
       {
         path: "/allCards/:id",
