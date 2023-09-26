@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import CardData from "../../Components/Header/AllCards/CardData";
+import DonationCard from "../../Components/Header/AllCards/DonationCard";
+// import CardData from "../../Components/Header/AllCards/CardData";
 
 const Donation = () => {
   const [donations, setDonations] = useState([]);
@@ -15,6 +16,11 @@ const Donation = () => {
   }, []);
 
   console.log(donations);
+
+  const handleRemove = () => {
+    localStorage.clear([]);
+  };
+
   return (
     <div>
       {noFound ? (
@@ -23,9 +29,17 @@ const Donation = () => {
         </p>
       ) : (
         <div>
-          <div>
+          {donations.length > 0 && (
+            <button
+              onClick={handleRemove()}
+              className="px- bg-[#FF444A] block mx-auto"
+            >
+              Clear Donations
+            </button>
+          )}
+          <div className="grid md:grid-cols-2 gap-6">
             {donations.map((details, idx) => (
-              <CardData key={idx} details={details}></CardData>
+              <DonationCard key={idx} details={details}></DonationCard>
             ))}
           </div>
         </div>
