@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <h1>Error 404 Sorry</h1>
       <h2>We Misplaced That Page</h2>
       <p>

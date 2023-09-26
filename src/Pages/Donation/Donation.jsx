@@ -5,6 +5,9 @@ import DonationCard from "../../Components/Header/AllCards/DonationCard";
 const Donation = () => {
   const [donations, setDonations] = useState([]);
   const [noFound, setNoFound] = useState("");
+
+  const [isShow, setIsShow] = useState(false);
+  // const [onOff, setOnOff] = useState(false);
   useEffect(() => {
     const donation = JSON.parse(localStorage.getItem("donations"));
 
@@ -19,7 +22,15 @@ const Donation = () => {
 
   const handleRemove = () => {
     localStorage.clear([]);
+    setNoFound("No Data Found");
   };
+  console.log(isShow);
+
+  // const handleBtn = () => {
+  //   setOnOff(true);
+  //   const btn = document.getElementById("btn-click");
+  //   btn.classList.add("hidden");
+  // };
 
   return (
     <div>
@@ -31,17 +42,35 @@ const Donation = () => {
         <div>
           {donations.length > 0 && (
             <button
-              onClick={handleRemove()}
-              className="px- bg-[#FF444A] block mx-auto"
+              onClick={handleRemove}
+              className=" bg-[#FF444A] block  text-white w-[110px] h-[48px] font-semibold rounded-lg mx-auto"
             >
               Clear Donations
             </button>
           )}
           <div className="grid md:grid-cols-2 gap-6">
-            {donations.map((details, idx) => (
-              <DonationCard key={idx} details={details}></DonationCard>
-            ))}
+            {isShow
+              ? donations.map((details, idx) => (
+                  <DonationCard key={idx} details={details}></DonationCard>
+                ))
+              : donations
+                  .slice(0, 4)
+                  .map((details, idx) => (
+                    <DonationCard key={idx} details={details}></DonationCard>
+                  ))}
           </div>
+          {donations?.length > 4 && (
+            <div>
+              <button
+                id="btn-click"
+                // onClick={handleBtn}
+                onClick={() => setIsShow(!isShow)}
+                className=" block text-white w-[110px] h-[48px] font-semibold rounded-lg bg-[#009444] mx-auto"
+              >
+                {isShow ? "See Less" : "See All"}
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
