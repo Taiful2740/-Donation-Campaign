@@ -1,4 +1,4 @@
-///////Donation Forms That Are Easy to Use\\\\\\\
+///Donation Forms That Are Easy to Use\\\
 
 ⦿Create donation forms that are simple to fill out and straightforward. Reduce the amount of fields required to reduce friction and increase donations.
 
