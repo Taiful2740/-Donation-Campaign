@@ -1,9 +1,14 @@
-const GetComponent = () => {
-  return (
-    <div>
-      <h1>hi</h1>
-    </div>
-  );
-};
+import { useEffect, useState } from "react";
 
+const GetComponent = () => {
+  const [campaignsData, setCampaignsData] = useState([]);
+
+  useEffect(() => {
+    fetch("/data.json")
+      .then(res => res.json())
+      .then(data => setCampaignsData(data));
+  }, []);
+
+  return { campaignsData };
+};
 export default GetComponent;

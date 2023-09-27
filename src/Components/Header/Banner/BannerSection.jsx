@@ -1,6 +1,8 @@
-// import React from "react";
+import { useRef } from "react";
 
-const BannerSection = () => {
+const BannerSection = ({ handleSearch }) => {
+  const inputRef = useRef();
+
   return (
     <div>
       <div className="">
@@ -18,11 +20,13 @@ const BannerSection = () => {
               </h1>
               <div className="relative w-7/12 mt-10  mx-auto">
                 <input
-                  className="block p-2.5 w-full z-20 text-sm  bg-gray-50 rounded-lg   border-[#FF444A]"
+                  ref={inputRef}
+                  className="block p-2.5 w-full z-20 text-sm  bg-gray-50 rounded-lg border text-black border-[#FF444A]"
                   placeholder="Search here...."
                   type="text"
                 />
                 <button
+                  onClick={() => handleSearch(inputRef)}
                   type="submit"
                   className="absolute cursor-pointer top-0 right-0 p-2.5 px-5 text-sm font-medium h-full text-white  bg-[#FF444A] rounded-r-lg border-[#FF444A]   "
                 >

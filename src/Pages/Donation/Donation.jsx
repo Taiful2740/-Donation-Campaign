@@ -35,7 +35,7 @@ const Donation = () => {
   return (
     <div>
       {noFound ? (
-        <p className="h-[80vh] flex justify-center items-center text-5xl font-semibold">
+        <p className="h-[80vh] flex justify-center items-center text-2xl md:text-5xl font-semibold">
           {noFound}
         </p>
       ) : (
@@ -43,7 +43,7 @@ const Donation = () => {
           {donations.length > 0 && (
             <button
               onClick={handleRemove}
-              className=" bg-[#FF444A] block  text-white w-[110px] h-[48px] font-semibold rounded-lg mx-auto"
+              className=" bg-[#FF444A] block  text-white w-[110px] h-[48px] font-semibold rounded-lg mx-auto m-5"
             >
               Clear Donations
             </button>
@@ -65,7 +65,7 @@ const Donation = () => {
                 id="btn-click"
                 // onClick={handleBtn}
                 onClick={() => setIsShow(!isShow)}
-                className=" block text-white w-[110px] h-[48px] font-semibold rounded-lg bg-[#009444] mx-auto"
+                className=" block text-white w-[110px] h-[48px] font-semibold rounded-lg bg-[#009444] mx-auto m-5"
               >
                 {isShow ? "See Less" : "See All"}
               </button>
